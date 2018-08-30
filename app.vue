@@ -9,9 +9,8 @@
     export default {
         data() {
             return {
-                msg: "hello wrrld"
+                msg: "hello w0rrld"
             }
-        },
-        co
-    }
+        }
+            }
 </script>
