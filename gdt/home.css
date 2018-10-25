@@ -1,0 +1,24 @@
+body,
+html {
+    height: 100%;
+    width: 100%;
+}
+
+#wrapper .parent {
+    height: 100%;
+    width: 100%;
+    /* background: red; */
+}
+
+#wrapper .parent .nav-menu {
+    position: relative;
+}
+.item {
+    height: 500px;
+}
+
+.carousel-inner>.item>img {
+    height: 100% !important;
+    object-fit: cover;
+    width: 100%;
+}
