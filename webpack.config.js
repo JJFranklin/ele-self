@@ -19,8 +19,9 @@ module.exports = {
                 test: /\.(js|jsx)$/,
                 loader: "babel-loader",
                 exclude: /node_modules/,
-                options: { // 将es6代码转换成浏览器都支持的es5代码
-                    presets: ['es2015'],
+                options: { 
+                    // 将es6代码转换成浏览器都支持的es5代码,添加 stage-3 以支持 ... 解构函数 
+                    presets: ['es2015','stage-3'],
                     plugins: ['transform-runtime']
                 }
             },
