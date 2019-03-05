@@ -1,5 +1,5 @@
 <template>
-    <div>msg</div>
+    <div>{{msg}}</div>
 
 </template>
 
@@ -8,7 +8,7 @@
     export default {
         data() {
             return {
-                msg: "fdsfa"
+                msg: "eg''ge'r'g"
             }
         }
     }

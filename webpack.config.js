@@ -1,5 +1,8 @@
 const path = require("path");
 const VueLoderPlugin = require("vue-loader/lib/plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CleanWebpackPlugin = require("clean-webpack-plugin");
+const Webpack = require("webpack");
 
 module.exports = {
     entry:"./src/index.js",
@@ -18,11 +21,23 @@ module.exports = {
                 test:/\.vue$/,
                 loader:'vue-loader'
             }
-        ],
-
+        ]
+    },
+    devServer:{
+        contentBase:path.join(__dirname,"dist"),
+        compress:true,
+        hot:true,
+        port:9090,
     },
     plugins:[
-        new VueLoderPlugin()
+        // 此处有改动，需要接受一个对象
+        new CleanWebpackPlugin({
+            "cleanOnceBeforeBuildPatterns":"./dist"
+        }),
+        new VueLoderPlugin(), // vue 对象需要应用 Vueloader 插件
+        new HtmlWebpackPlugin({template:'./index.html'}),
+        new Webpack.NamedModulesPlugin(), // 查看需要修补的依赖
+        new Webpack.HotModuleReplacementPlugin(),// 热加载
     ],
     resolve:{}
 }
