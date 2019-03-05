@@ -20,6 +20,23 @@ module.exports = {
             {
                 test:/\.vue$/,
                 loader:'vue-loader'
+            },
+            {
+                test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+				loader: 'url'
+            },
+            {
+                test:/\.scss$/,
+                use:[
+                    {
+                        loader:"style-loader",
+                    },{
+                        loader:"css-loader",
+                    },{
+                        loader:"sass-loader",
+                        // include:"./src/lib/scss"
+                    }
+                ]
             }
         ]
     },

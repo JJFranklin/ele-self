@@ -14,3 +14,15 @@
 - express 作为简易的网络服务端
 - Vue + Vuex + VueRouter 作为前端构建框架
 - 前端页面样式框架:iview
+
+
+### 需要注意的地方
+- 使用sass 需要安装node-sass style-loader css-loader 
+- 安装完毕，运行 npm rebuild node-sass
+- Vue 模板项目的构建需要安装 vue-loader 插件
+- webpack 的 clean插件，需要接受一个对象
+```
+ new CleanWebpackPlugin({
+            "cleanOnceBeforeBuildPatterns":"./dist"
+        })
+``` 
