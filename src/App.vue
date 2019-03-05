@@ -5,8 +5,8 @@
 </template>
 
 <style lang="scss" scoped>
+@import "./lib/scss/rest.scss";
 @import "./lib/scss/app.scss";
-
 </style>
 
 

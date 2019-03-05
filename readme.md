@@ -26,3 +26,4 @@
             "cleanOnceBeforeBuildPatterns":"./dist"
         })
 ``` 
+- webpack>4.1.1 版本 需要安装 extract-text-webpack-plugin@next 安装包才不报错

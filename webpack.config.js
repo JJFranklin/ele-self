@@ -3,6 +3,15 @@ const VueLoderPlugin = require("vue-loader/lib/plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const Webpack = require("webpack");
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");//提取css到单独文件的插件
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');//压缩css插件
+
+
+const extractSass = new ExtractTextPlugin({
+    filename: "css/[name].css",
+    // disable: process.env.NODE_ENV === "development"
+});
 
 module.exports = {
     entry:"./src/index.js",
@@ -27,16 +36,11 @@ module.exports = {
             },
             {
                 test:/\.scss$/,
-                use:[
-                    {
-                        loader:"style-loader",
-                    },{
-                        loader:"css-loader",
-                    },{
-                        loader:"sass-loader",
-                        // include:"./src/lib/scss"
-                    }
-                ]
+                use: extractSass.extract({
+                    fallback: 'style-loader',
+                    //如果需要，可以在 sass-loader 之前将 resolve-url-loader 链接进来
+                    use: ['css-loader', 'sass-loader']
+                  })
             }
         ]
     },
@@ -55,6 +59,7 @@ module.exports = {
         new HtmlWebpackPlugin({template:'./index.html'}),
         new Webpack.NamedModulesPlugin(), // 查看需要修补的依赖
         new Webpack.HotModuleReplacementPlugin(),// 热加载
+        extractSass
     ],
     resolve:{}
 }
