@@ -47,7 +47,7 @@ module.exports = {
         port:9090,
     },
     plugins:[
-        // 此处有改动，需要接受一个对象
+        // 此处有改动，新版需要接受一个对象
         new CleanWebpackPlugin({
             "cleanOnceBeforeBuildPatterns":"./dist"
         }),
