@@ -1,5 +1,7 @@
 <template>
-    <div class="app"></div>
+    <div class="app">
+        <v-header></v-header>
+    </div>
 </template>
 
 <style lang="scss" scoped>
@@ -7,12 +9,15 @@
 </style>
 
 <script>
+    import Header from "./commponets/header/header.vue";
     export default {
         data() {
             return {
-                msg: "eg''ge'r'g"
+                msg: "eggerg"
             }
         },
-        components:{}
+        components:{
+            "v-header":Header
+        }
     }
 </script>
