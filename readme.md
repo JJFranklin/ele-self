@@ -21,9 +21,10 @@
 - 安装完毕，运行 npm rebuild node-sass
 - Vue 模板项目的构建需要安装 vue-loader 插件
 - webpack 的 clean插件，需要接受一个对象
-```
+```js
  new CleanWebpackPlugin({
             "cleanOnceBeforeBuildPatterns":"./dist"
         })
-``` 
+```
 - webpack>4.1.1 版本 需要安装 extract-text-webpack-plugin@next 安装包才不报错
+- webpack 4 去掉了 extract-text-webpack-plugin 改为 mini-css-extract-plugin,mini-css-extract-plugin 需要和  optimize-css-assets-webpack-plugin 配合使用才能压缩css
