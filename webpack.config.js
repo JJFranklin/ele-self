@@ -35,7 +35,7 @@ module.exports = {
             },
             {
                 test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-                loader: 'url'
+                loader:"file-loader?limit=1024&name=images/[name].[ext]"
             },
             {
                 // test:/\.scss$/,
@@ -71,7 +71,7 @@ module.exports = {
         new Webpack.NamedModulesPlugin(), // 查看需要修补的依赖
         new Webpack.HotModuleReplacementPlugin(),// 热加载
         new MiniCssExtractPlugin({
-            filename: "css/[name].css",
+            filename: "css/[name][contenthash].css",
             // chunkFilename: "[id].css"
           }),
         // extractSass,
